@@ -1,10 +1,10 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'redux-zero/react';
 import { formatAMPM } from '../GetDateAmPm';
 
-function WeatherHour() {
-  const dataTesting = useSelector((state: any) => state.weather.data);
+function WeatherHour({ data }: any) {
+  const dataTesting = useSelector((state: any) => state.data);
   const dataTemp: any = [];
   const dataFeelsLike: any = [];
   const currentTime: any = [];

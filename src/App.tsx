@@ -4,11 +4,7 @@ import Main from './components/Main';
 import { getDataWeek, findCityName } from './reduxZero/actions';
 
 function App({ data, getDataWeek }: any) {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getData(21.0245, 105.8412)); //Hanoi
-  // }, [dispatch]);
-
+  console.log(data);
   useEffect(() => {
     getDataWeek(21.0245, 105.8412);
   }, []);

@@ -7,6 +7,10 @@ import { getDataWeek, findCityName } from '../reduxZero/actions';
 import { connect } from 'redux-zero/react';
 
 function Weather({ data, nameCity, findCityName }: any) {
+  console.log('data', data);
+  console.log('nameCity', nameCity);
+  console.log('findCityName', findCityName);
+
   const [textInput, setTextInput] = useState('');
 
   const Search = (event: any) => {

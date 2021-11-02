@@ -10,7 +10,7 @@ function Main() {
           <Weather />
         </div>
         <div className='item status-wrap col c-9 l-9 m-12 '>
-          {/* <Status></Status> */}
+          <Status></Status>
         </div>
       </div>
     </div>

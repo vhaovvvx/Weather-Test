@@ -1,11 +1,9 @@
-import { Component } from 'react';
+// import { Component } from 'react';
 import weatherApi from '../../api/weatherApi';
 
 const api = {
   key: '90d689951f066eafb8634a169911a8db',
 };
-
-
 
 export const fetchApiOfNameCity = async (nameCity: string): Promise<any> => {
   const data = await weatherApi.getDataOneDay({

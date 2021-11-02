@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import { useSelector } from 'redux-zero/react';
 import { formatAMPM, getDate, getDay, getWindKmPerSec } from '../GetDateAmPm';
 import classes from './WeatherWeek.module.css';
 
 function WeatherWeek() {
-  const dataTesting = useSelector((state: any) => state.weather.data);
+  const dataTesting = useSelector((state: any) => state.data);
+  console.log('dataTest', dataTesting);
 
-  const data = true;
+  // const data = true;
 
   const [clickedId, setClickedId] = useState(0);
   const [actived, setActived] = useState(0);
@@ -21,7 +23,7 @@ function WeatherWeek() {
   return (
     <>
       <div className='row'>
-        {data !== undefined
+        {dataTesting !== undefined
           ? dataTesting.daily.map((res: any, i: number) => (
               <div
                 key={i}
@@ -50,7 +52,7 @@ function WeatherWeek() {
           : null}
       </div>
 
-      {data !== undefined ? (
+      {dataTesting !== undefined ? (
         <div className={`${classes.content} row`}>
           <div className={`${classes.contentBox} col c-12 l-12 m-12`}>
             <div className={classes.contentDate}>

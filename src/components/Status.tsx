@@ -5,6 +5,7 @@ import classes from './Status.module.css';
 import WeatherHour from './Status/WeatherHour';
 import WeatherOneDay from './Status/WeatherOneDay';
 import WeatherWeek from './Status/WeatherWeek';
+
 import { connect } from 'redux-zero/react';
 
 function Status({ data, error }: any) {

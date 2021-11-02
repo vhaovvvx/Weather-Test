@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'redux-zero/react';
 import { formatAMPM, getKm, getWindKmPerSec } from '../GetDateAmPm';
 import {
   Humidity,
@@ -12,11 +12,12 @@ import {
 import classes from './WeatherOneDay.module.css';
 
 const WeatherOneDay = () => {
-  const data = useSelector((state: any) => state.weather.data);
+  const data = useSelector((state: any) => state.data);
+  console.log('data2', data);
 
   return (
     <>
-      {data.current === undefined ? (
+      {data === undefined ? (
         <div>loadding...</div>
       ) : (
         <div className={`row ${classes.test}`}>
