@@ -5,10 +5,12 @@ import { formatAMPM, getDate, getDay, getWindKmPerSec } from '../GetDateAmPm';
 import classes from './WeatherWeek.module.css';
 
 function WeatherWeek() {
-  const dataTesting = useSelector((state: any) => state.data);
-  console.log('dataTest', dataTesting);
-
-  // const data = true;
+  type TState = {
+    data: Object;
+    error: string;
+    nameCity: string;
+  };
+  const dataTesting = useSelector((state: TState) => state.data);
 
   const [clickedId, setClickedId] = useState(0);
   const [actived, setActived] = useState(0);
@@ -20,11 +22,36 @@ function WeatherWeek() {
     }
   };
 
+  type TRes = {
+    clounds: number;
+    dew_point: number;
+    dt: number;
+    feels_like: Object;
+    himidity: number;
+    pop: number;
+    pressure: number;
+    temp: {
+      min: number;
+      max: number;
+    };
+    uvi: number;
+    weather: Array<{
+      id: number;
+      main: string;
+      description: string;
+      icon: string;
+    }>;
+    visibility: number;
+    wind_deg: number;
+    wind_gust: number;
+    wind_speed: number;
+  };
+
   return (
     <>
       <div className='row'>
         {dataTesting !== undefined
-          ? dataTesting.daily.map((res: any, i: number) => (
+          ? dataTesting.daily.map((res: TRes, i: number) => (
               <div
                 key={i}
                 // name={getDay(res.sunrise)}

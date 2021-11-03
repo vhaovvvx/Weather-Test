@@ -8,7 +8,7 @@ import WeatherWeek from './Status/WeatherWeek';
 
 import { connect } from 'redux-zero/react';
 
-function Status({ data, error }: any) {
+function Status({ data, error }: { data: {}; error: string }) {
   const [page, setPage] = useState('');
 
   const printButtonLabel = (event: any) => {
@@ -52,7 +52,10 @@ function Status({ data, error }: any) {
   );
 }
 
-const mapToProps = ({ data, error }: any) => ({ data, error });
+const mapToProps = ({ data, error }: { data: {}; error: string }) => ({
+  data,
+  error,
+});
 
 const connected = connect(mapToProps);
 

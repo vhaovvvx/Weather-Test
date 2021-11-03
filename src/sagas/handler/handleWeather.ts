@@ -27,6 +27,7 @@ export type TCityResponse = {
 };
 
 function* handleFindCity(action: any): Generator {
+  console.log('actions', action);
   try {
     const city = yield call(fetchApiOfNameCity, action.nameCity);
     const cityRes = city as TCityResponse;

@@ -12,6 +12,7 @@ const ButtonGroup = (props: TButtonGroup) => {
   const [actived, setActived] = useState(0);
 
   const handleClick = (event: any, id: number) => {
+    console.log(event);
     setClickedId(id);
     shows(event);
     if (actived === 0) {

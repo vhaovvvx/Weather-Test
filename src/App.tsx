@@ -3,8 +3,7 @@ import { connect } from 'redux-zero/react';
 import Main from './components/Main';
 import { getDataWeek, findCityName } from './reduxZero/actions';
 
-function App({ data, getDataWeek }: any) {
-  console.log(data);
+function App({ data, getDataWeek }: { data: {}; getDataWeek: Function }) {
   useEffect(() => {
     getDataWeek(21.0245, 105.8412);
   }, []);
@@ -19,7 +18,7 @@ function App({ data, getDataWeek }: any) {
 const actions = {
   getDataWeek,
 };
-const mapToProps = ({ data }: any) => ({ data });
+const mapToProps = ({ data }: { data: Object }) => ({ data });
 
 const connected = connect(mapToProps, actions);
 

@@ -1,19 +1,40 @@
 import { Spin } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, SyntheticEvent } from 'react';
 import logo from '../img/backgroundHeavyRain.jpg';
 import { getDateFullText, getHourAndMunite } from './GetDateAmPm';
 import classes from './Weather.module.css';
 import { getDataWeek, findCityName } from '../reduxZero/actions';
 import { connect } from 'redux-zero/react';
+import { react } from '@babel/types';
 
-function Weather({ data, nameCity, findCityName }: any) {
-  console.log('data', data);
-  console.log('nameCity', nameCity);
-  console.log('findCityName', findCityName);
+type TProps = {
+  data: {
+    current: {
+      clouds: number;
+      weather: [
+        {
+          id: number;
+          description: string;
+          icon: string;
+          main: string;
+        }
+      ];
+      temp: number;
+    };
+  };
+  nameCity: string;
+  findCityName: Function;
+};
 
+function Weather({ data, nameCity, findCityName }: TProps) {
+  console.log('day la data', data);
+  console.log('day la namecity', nameCity);
+  console.log('day la findcity', findCityName);
   const [textInput, setTextInput] = useState('');
 
-  const Search = (event: any) => {
+  const Search = (
+    event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
     if (event.key === 'Enter') {
       findCityName(textInput);
       setTextInput('');
@@ -68,7 +89,10 @@ function Weather({ data, nameCity, findCityName }: any) {
   );
 }
 
-const mapToProps = ({ data, nameCity }: any) => ({ data, nameCity });
+const mapToProps = ({ data, nameCity }: { data: {}; nameCity: string }) => ({
+  data,
+  nameCity,
+});
 const actions = {
   getDataWeek,
   findCityName,

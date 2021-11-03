@@ -12,8 +12,12 @@ import {
 import classes from './WeatherOneDay.module.css';
 
 const WeatherOneDay = () => {
-  const data = useSelector((state: any) => state.data);
-  console.log('data2', data);
+  type TState = {
+    data: Object;
+    error: string;
+    nameCity: string;
+  };
+  const data = useSelector((state: TState) => state.data);
 
   return (
     <>

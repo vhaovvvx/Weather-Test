@@ -1,18 +1,18 @@
-function formatAMPM(date: any) {
+function formatAMPM(date: number) {
   let d = new Date(date * 1000);
   let hours = d.getHours();
-  let minutes = d.getMinutes();
+  let minutes: number | string = d.getMinutes();
   let ampm = hours >= 12 ? 'pm' : 'am';
   hours = hours % 12;
   hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? minutes : minutes;
+  minutes = minutes < 10 ? +minutes : minutes;
   let strTime = hours + ':' + minutes + ' ' + ampm;
   return strTime;
 }
 
-function getHourAndMunite(d: any) {
+function getHourAndMunite(d: Date) {
   let hours = d.getHours();
-  let minutes = d.getMinutes();
+  let minutes: number | string = d.getMinutes();
   let ampm = hours >= 12 ? 'pm' : 'am';
   hours = hours % 12;
   hours = hours ? hours : 12; // the hour '0' should be '12'
@@ -21,7 +21,7 @@ function getHourAndMunite(d: any) {
   return strTime;
 }
 
-const getDate = (d: any) => {
+const getDate = (d: number) => {
   let date = new Date(d * 1000);
   let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   let day = days[date.getDay()];
@@ -31,7 +31,7 @@ const getDate = (d: any) => {
   return `${day}, ${getDate}/${getMonth}`;
 };
 
-const getDateFullText = (d: any) => {
+const getDateFullText = (d: Date) => {
   let days = [
     'Sunday',
     'Monday',
@@ -47,19 +47,19 @@ const getDateFullText = (d: any) => {
   return ` ${day} `;
 };
 
-const getDay = (d: any) => {
+const getDay = (d: number) => {
   let date = new Date(d * 1000);
   let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   let day = days[date.getDay()];
   return `${day}`;
 };
 
-const getWindKmPerSec = (m: any) => {
+const getWindKmPerSec = (m: number) => {
   const dive = m * 3.6;
   return `${dive.toFixed(2)} Km/h`;
 };
 
-const getKm = (m: any) => {
+const getKm = (m: number) => {
   const dive = m / 1000;
   return `${dive} Km`;
 };
